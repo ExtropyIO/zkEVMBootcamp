@@ -3,7 +3,7 @@
 
 [[exercises]]
 name = "variables1"
-path = "homeworks/homework4/variables/variables1.rs"
+path = "homeworks/homework3/variables/variables1.rs"
 mode = "compile"
 hint = """
 Hint: The declaration on line 12 is missing a keyword that is needed in Rust
@@ -11,7 +11,7 @@ to create a new variable binding."""
 
 [[exercises]]
 name = "variables2"
-path = "homeworks/homework4/variables/variables2.rs"
+path = "homeworks/homework3/variables/variables2.rs"
 mode = "compile"
 hint = """
 The compiler message is saying that Rust cannot infer the type that the
@@ -24,7 +24,7 @@ What if x is the same type as 10? What if it's a different type?"""
 
 [[exercises]]
 name = "variables3"
-path = "homeworks/homework4/variables/variables3.rs"
+path = "homeworks/homework3/variables/variables3.rs"
 mode = "compile"
 hint = """
 In Rust, variable bindings are immutable by default. But here we're trying
@@ -33,7 +33,7 @@ a variable binding mutable instead."""
 
 [[exercises]]
 name = "variables4"
-path = "homeworks/homework4/variables/variables4.rs"
+path = "homeworks/homework3/variables/variables4.rs"
 mode = "compile"
 hint = """
 Oops! In this exercise, we have a variable binding that we've created on
@@ -44,7 +44,7 @@ programming language -- thankfully the Rust compiler has caught this for us!"""
 
 [[exercises]]
 name = "variables5"
-path = "homeworks/homework4/variables/variables5.rs"
+path = "homeworks/homework3/variables/variables5.rs"
 mode = "compile"
 hint = """
 In variables3 we already learned how to make an immutable variable mutable
@@ -59,7 +59,7 @@ Try to solve this exercise afterwards using this technique."""
 
 [[exercises]]
 name = "variables6"
-path = "homeworks/homework4/variables/variables6.rs"
+path = "homeworks/homework3/variables/variables6.rs"
 mode = "compile"
 hint = """
 We know about variables and mutability, but there is another important type of
@@ -76,7 +76,7 @@ https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html#differences
 
 [[exercises]]
 name = "functions1"
-path = "homeworks/homework4/functions/functions1.rs"
+path = "homeworks/homework3/functions/functions1.rs"
 mode = "compile"
 hint = """
 This main function is calling a function that it expects to exist, but the
@@ -86,7 +86,7 @@ Sounds a lot like `main`, doesn't it?"""
 
 [[exercises]]
 name = "functions2"
-path = "homeworks/homework4/functions/functions2.rs"
+path = "homeworks/homework3/functions/functions2.rs"
 mode = "compile"
 hint = """
 Rust requires that all parts of a function's signature have type annotations,
@@ -94,7 +94,7 @@ but `call_me` is missing the type annotation of `num`."""
 
 [[exercises]]
 name = "functions3"
-path = "homeworks/homework4/functions/functions3.rs"
+path = "homeworks/homework3/functions/functions3.rs"
 mode = "compile"
 hint = """
 This time, the function *declaration* is okay, but there's something wrong
@@ -102,7 +102,7 @@ with the place where we're calling the function."""
 
 [[exercises]]
 name = "functions4"
-path = "homeworks/homework4/functions/functions4.rs"
+path = "homeworks/homework3/functions/functions4.rs"
 mode = "compile"
 hint = """
 The error message points to line 14 and says it expects a type after the
@@ -111,7 +111,7 @@ the `is_even` function for an example!"""
 
 [[exercises]]
 name = "functions5"
-path = "homeworks/homework4/functions/functions5.rs"
+path = "homeworks/homework3/functions/functions5.rs"
 mode = "compile"
 hint = """
 This is a really common error that can be fixed by removing one character.
@@ -125,7 +125,7 @@ They are not the same. There are two solutions:
 
 [[exercises]]
 name = "if1"
-path = "homeworks/homework4/if/if1.rs"
+path = "homeworks/homework3/if/if1.rs"
 mode = "test"
 hint = """
 It's possible to do this in one line if you would like!
@@ -139,7 +139,7 @@ Remember in Rust that:
 
 [[exercises]]
 name = "if2"
-path = "homeworks/homework4/if/if2.rs"
+path = "homeworks/homework3/if/if2.rs"
 mode = "test"
 hint = """
 For that first compiler error, it's important in Rust that each conditional
@@ -152,19 +152,19 @@ conditions checking different input values."""
 
 [[exercises]]
 name = "primitive_types1"
-path = "homeworks/homework4/primitive_types/primitive_types1.rs"
+path = "homeworks/homework3/primitive_types/primitive_types1.rs"
 mode = "compile"
 hint = "No hints this time ;)"
 
 [[exercises]]
 name = "primitive_types2"
-path = "homeworks/homework4/primitive_types/primitive_types2.rs"
+path = "homeworks/homework3/primitive_types/primitive_types2.rs"
 mode = "compile"
 hint = "No hints this time ;)"
 
 [[exercises]]
 name = "primitive_types3"
-path = "homeworks/homework4/primitive_types/primitive_types3.rs"
+path = "homeworks/homework3/primitive_types/primitive_types3.rs"
 mode = "compile"
 hint = """
 There's a shorthand to initialize Arrays with a certain size that does not
@@ -177,7 +177,7 @@ for `a.len() >= 100`?"""
 
 [[exercises]]
 name = "primitive_types4"
-path = "homeworks/homework4/primitive_types/primitive_types4.rs"
+path = "homeworks/homework3/primitive_types/primitive_types4.rs"
 mode = "test"
 hint = """
 Take a look at the Understanding Ownership -> Slices -> Other Slices section of the book:
@@ -192,7 +192,7 @@ https://doc.rust-lang.org/book/ch15-02-deref.html"""
 
 [[exercises]]
 name = "primitive_types5"
-path = "homeworks/homework4/primitive_types/primitive_types5.rs"
+path = "homeworks/homework3/primitive_types/primitive_types5.rs"
 mode = "compile"
 hint = """
 Take a look at the Data Types -> The Tuple Type section of the book:
@@ -203,7 +203,7 @@ of the tuple. You can do it!!"""
 
 [[exercises]]
 name = "primitive_types6"
-path = "homeworks/homework4/primitive_types/primitive_types6.rs"
+path = "homeworks/homework3/primitive_types/primitive_types6.rs"
 mode = "test"
 hint = """
 While you could use a destructuring `let` for the tuple here, try
@@ -217,7 +217,7 @@ Now you have another tool in your toolbox!"""
 
 [[exercises]]
 name = "strings1"
-path = "homeworks/homework4/strings/strings1.rs"
+path = "homeworks/homework3/strings/strings1.rs"
 mode = "compile"
 hint = """
 The `current_favorite_color` function is currently returning a string slice with the `'static`
@@ -229,7 +229,7 @@ trait."""
 
 [[exercises]]
 name = "strings2"
-path = "homeworks/homework4/strings/strings2.rs"
+path = "homeworks/homework3/strings/strings2.rs"
 mode = "compile"
 hint = """
 Yes, it would be really easy to fix this by just changing the value bound to `word` to be a
