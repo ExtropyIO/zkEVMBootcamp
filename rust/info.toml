@@ -236,3 +236,157 @@ Yes, it would be really easy to fix this by just changing the value bound to `wo
 string slice instead of a `String`, wouldn't it?? There is a way to add one character to line
 9, though, that will coerce the `String` into a string slice."""
 
+
+# MOVE SEMANTICS
+
+[[exercises]]
+name = "move_semantics1"
+path = "homeworks/homework10/move_semantics/move_semantics1.rs"
+mode = "compile"
+hint = """
+So you've got the "cannot borrow immutable local variable `vec1` as mutable" error on line 13,
+right? The fix for this is going to be adding one keyword, and the addition is NOT on line 13
+where the error is."""
+
+[[exercises]]
+name = "move_semantics2"
+path = "homeworks/homework10/move_semantics/move_semantics2.rs"
+mode = "compile"
+hint = """
+So `vec0` is being *moved* into the function `fill_vec` when we call it on
+line 10, which means it gets dropped at the end of `fill_vec`, which means we
+can't use `vec0` again on line 13 (or anywhere else in `main` after the
+`fill_vec` call for that matter). We could fix this in a few ways, try them
+all!
+1. Make another, separate version of the data that's in `vec0` and pass that
+   to `fill_vec` instead.
+2. Make `fill_vec` borrow its argument instead of taking ownership of it,
+   and then copy the data within the function in order to return an owned
+   `Vec<i32>`
+3. Make `fill_vec` *mutably* borrow its argument (which will need to be
+   mutable), modify it directly, then not return anything. Then you can get rid
+   of `vec1` entirely -- note that this will change what gets printed by the
+   first `println!`"""
+
+[[exercises]]
+name = "move_semantics3"
+path = "homeworks/homework10/move_semantics/move_semantics3.rs"
+mode = "compile"
+hint = """
+The difference between this one and the previous ones is that the first line
+of `fn fill_vec` that had `let mut vec = vec;` is no longer there. You can,
+instead of adding that line back, add `mut` in one place that will change
+an existing binding to be a mutable binding instead of an immutable one :)"""
+
+[[exercises]]
+name = "move_semantics4"
+path = "homeworks/homework10/move_semantics/move_semantics4.rs"
+mode = "compile"
+hint = """
+Stop reading whenever you feel like you have enough direction :) Or try
+doing one step and then fixing the compiler errors that result!
+So the end goal is to:
+   - get rid of the first line in main that creates the new vector
+   - so then `vec0` doesn't exist, so we can't pass it to `fill_vec`
+   - we don't want to pass anything to `fill_vec`, so its signature should
+     reflect that it does not take any arguments
+   - since we're not creating a new vec in `main` anymore, we need to create
+     a new vec in `fill_vec`, similarly to the way we did in `main`"""
+
+[[exercises]]
+name = "move_semantics5"
+path = "homeworks/homework10/move_semantics/move_semantics5.rs"
+mode = "compile"
+hint = """
+Carefully reason about the range in which each mutable reference is in
+vogue. Does it help to update the value of referent (x) immediately after
+the mutable reference is taken? Read more about 'Mutable References'
+in the book's section References and Borrowing':
+https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html#mutable-references.
+"""
+
+[[exercises]]
+name = "move_semantics6"
+path = "homeworks/homework10/move_semantics/move_semantics6.rs"
+mode = "compile"
+hint = """
+To find the answer, you can consult the book section "References and Borrowing":
+https://doc.rust-lang.org/stable/book/ch04-02-references-and-borrowing.html
+The first problem is that `get_char` is taking ownership of the string.
+So `data` is moved and can't be used for `string_uppercase`
+`data` is moved to `get_char` first, meaning that `string_uppercase` cannot manipulate the data.
+Once you've fixed that, `string_uppercase`'s function signature will also need to be adjusted.
+Can you figure out how?
+
+Another hint: it has to do with the `&` character."""
+
+
+# ENUMS
+
+[[exercises]]
+name = "enums1"
+path = "homeworks/homework10/enums/enums1.rs"
+mode = "compile"
+hint = """
+Hint: The declaration of the enumeration type has not been defined yet."""
+
+[[exercises]]
+name = "enums2"
+path = "homeworks/homework10/enums/enums2.rs"
+mode = "compile"
+hint = """
+Hint: you can create enumerations that have different variants with different types
+such as no data, anonymous structs, a single string, tuples, ...etc"""
+
+[[exercises]]
+name = "enums3"
+path = "homeworks/homework10/enums/enums3.rs"
+mode = "test"
+hint = "No hints this time ;)"
+
+
+# COLLECTIONS
+
+[[exercises]]
+name = "vec1"
+path = "homeworks/homework10/collections/vec1.rs"
+mode = "test"
+hint = """
+In Rust, there are two ways to define a Vector.
+1. One way is to use the `Vec::new()` function to create a new vector
+  and fill it with the `push()` method.
+2. The second way, which is simpler is to use the `vec![]` macro and
+  define your elements inside the square brackets.
+Check this chapter: https://doc.rust-lang.org/stable/book/ch08-01-vectors.html
+of the Rust book to learn more.
+"""
+
+[[exercises]]
+name = "vec2"
+path = "homeworks/homework10/collections/vec2.rs"
+mode = "test"
+hint = """
+Hint 1: `i` is each element from the Vec as they are being iterated.
+  Can you try multiplying this?
+Hint 2: Check the suggestion from the compiler error ;)
+"""
+
+[[exercises]]
+name = "hashmap1"
+path = "homeworks/homework10/collections/hashmap1.rs"
+mode = "test"
+hint = """
+Hint 1: Take a look at the return type of the function to figure out
+  the type for the `basket`.
+Hint 2: Number of fruits should be at least 5. And you have to put
+  at least three different types of fruits.
+"""
+
+[[exercises]]
+name = "hashmap2"
+path = "homeworks/homework10/collections/hashmap2.rs"
+mode = "test"
+hint = """
+Use the `entry()` and `or_insert()` methods of `HashMap` to achieve this.
+Learn more at https://doc.rust-lang.org/stable/book/ch08-03-hash-maps.html#only-inserting-a-value-if-the-key-has-no-value
+"""
