@@ -391,6 +391,84 @@ Use the `entry()` and `or_insert()` methods of `HashMap` to achieve this.
 Learn more at https://doc.rust-lang.org/stable/book/ch08-03-hash-maps.html#only-inserting-a-value-if-the-key-has-no-value
 """
 
+# Generics
+
+[[exercises]]
+name = "generics1"
+path = "homeworks/homework10/generics/generics1.rs"
+mode = "compile"
+hint = """
+Vectors in rust make use of generics to create dynamically sized arrays of any type.
+You need to tell the compiler what type we are pushing onto this vector."""
+
+[[exercises]]
+name = "generics2"
+path = "homeworks/homework10/generics/generics2.rs"
+mode = "test"
+hint = """
+Currently we are wrapping only values of type 'u32'.
+Maybe we could update the explicit references to this data type somehow?
+
+If you are still stuck https://doc.rust-lang.org/stable/book/ch10-01-syntax.html#in-method-definitions
+"""
+
+[[exercises]]
+name = "generics3"
+path = "homeworks/homework10/generics/generics3.rs"
+mode = "test"
+hint = """
+To find the best solution to this challenge you're going to need to think back to your
+knowledge of traits, specifically Trait Bound Syntax -  you may also need this: "use std::fmt::Display;"
+
+This is definitely harder than the last two exercises! You need to think about not only making the
+ReportCard struct generic, but also the correct property - you will need to change the implementation
+of the struct slightly too...you can do it!
+"""
+
+# OPTIONS
+
+[[exercises]]
+name = "option1"
+path = "homeworks/homework10/option/option1.rs"
+mode = "compile"
+hint = """
+Hint 1: Check out some functions of Option:
+is_some
+is_none
+unwrap
+
+and:
+pattern matching
+
+Hint 2: There are no sensible defaults for the value of an Array; the values need to be filled before use.
+"""
+
+[[exercises]]
+name = "option2"
+path = "homeworks/homework10/option/option2.rs"
+mode = "compile"
+hint = """
+check out:
+https://doc.rust-lang.org/rust-by-example/flow_control/if_let.html
+https://doc.rust-lang.org/rust-by-example/flow_control/while_let.html
+
+Remember that Options can be stacked in if let and while let.
+For example: Some(Some(variable)) = variable2
+Also see Option::flatten
+"""
+
+[[exercises]]
+name = "option3"
+path = "homeworks/homework10/option/option3.rs"
+mode = "compile"
+hint = """
+The compiler says a partial move happened in the `match`
+statement. How can this be avoided? The compiler shows the correction
+needed. After making the correction as suggested by the compiler, do
+read: https://doc.rust-lang.org/std/keyword.ref.html"""
+
+
+
 # ERROR HANDLING
 
 [[exercises]]
@@ -488,81 +566,6 @@ Read more about `map_err()` in the `std::result` documentation:
 https://doc.rust-lang.org/std/result/enum.Result.html#method.map_err"""
 
 
-# Generics
-
-[[exercises]]
-name = "generics1"
-path = "homeworks/homework6/generics/generics1.rs"
-mode = "compile"
-hint = """
-Vectors in rust make use of generics to create dynamically sized arrays of any type.
-You need to tell the compiler what type we are pushing onto this vector."""
-
-[[exercises]]
-name = "generics2"
-path = "homeworks/homework6/generics/generics2.rs"
-mode = "test"
-hint = """
-Currently we are wrapping only values of type 'u32'.
-Maybe we could update the explicit references to this data type somehow?
-
-If you are still stuck https://doc.rust-lang.org/stable/book/ch10-01-syntax.html#in-method-definitions
-"""
-
-[[exercises]]
-name = "generics3"
-path = "homeworks/homework6/generics/generics3.rs"
-mode = "test"
-hint = """
-To find the best solution to this challenge you're going to need to think back to your
-knowledge of traits, specifically Trait Bound Syntax -  you may also need this: "use std::fmt::Display;"
-
-This is definitely harder than the last two exercises! You need to think about not only making the
-ReportCard struct generic, but also the correct property - you will need to change the implementation
-of the struct slightly too...you can do it!
-"""
-
-# OPTIONS
-
-[[exercises]]
-name = "option1"
-path = "homeworks/homework6/option/option1.rs"
-mode = "compile"
-hint = """
-Hint 1: Check out some functions of Option:
-is_some
-is_none
-unwrap
-
-and:
-pattern matching
-
-Hint 2: There are no sensible defaults for the value of an Array; the values need to be filled before use.
-"""
-
-[[exercises]]
-name = "option2"
-path = "homeworks/homework6/option/option2.rs"
-mode = "compile"
-hint = """
-check out:
-https://doc.rust-lang.org/rust-by-example/flow_control/if_let.html
-https://doc.rust-lang.org/rust-by-example/flow_control/while_let.html
-
-Remember that Options can be stacked in if let and while let.
-For example: Some(Some(variable)) = variable2
-Also see Option::flatten
-"""
-
-[[exercises]]
-name = "option3"
-path = "homeworks/homework6/option/option3.rs"
-mode = "compile"
-hint = """
-The compiler says a partial move happened in the `match`
-statement. How can this be avoided? The compiler shows the correction
-needed. After making the correction as suggested by the compiler, do
-read: https://doc.rust-lang.org/std/keyword.ref.html"""
 
 # MODULES
 
