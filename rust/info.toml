@@ -390,3 +390,183 @@ hint = """
 Use the `entry()` and `or_insert()` methods of `HashMap` to achieve this.
 Learn more at https://doc.rust-lang.org/stable/book/ch08-03-hash-maps.html#only-inserting-a-value-if-the-key-has-no-value
 """
+
+# ERROR HANDLING
+
+[[exercises]]
+name = "errors1"
+path = "homeworks/homework13/error_handling/errors1.rs"
+mode = "test"
+hint = """
+`Ok` and `Err` are one of the variants of `Result`, so what the tests are saying
+is that `generate_nametag_text` should return a `Result` instead of an
+`Option`.
+
+To make this change, you'll need to:
+   - update the return type in the function signature to be a Result<String, String> that
+     could be the variants `Ok(String)` and `Err(String)`
+   - change the body of the function to return `Ok(stuff)` where it currently
+     returns `Some(stuff)`
+   - change the body of the function to return `Err(error message)` where it
+     currently returns `None`"""
+
+[[exercises]]
+name = "errors2"
+path = "homeworks/homework13/error_handling/errors2.rs"
+mode = "test"
+hint = """
+One way to handle this is using a `match` statement on
+`item_quantity.parse::<i32>()` where the cases are `Ok(something)` and
+`Err(something)`. This pattern is very common in Rust, though, so there's
+a `?` operator that does pretty much what you would make that match statement
+do for you! Take a look at this section of the Error Handling chapter:
+https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html#a-shortcut-for-propagating-errors-the--operator
+and give it a try!"""
+
+[[exercises]]
+name = "errors3"
+path = "homeworks/homework13/error_handling/errors3.rs"
+mode = "compile"
+hint = """
+If other functions can return a `Result`, why shouldn't `main`?"""
+
+[[exercises]]
+name = "errors4"
+path = "homeworks/homework13/error_handling/errors4.rs"
+mode = "test"
+hint = """
+`PositiveNonzeroInteger::new` is always creating a new instance and returning an `Ok` result.
+It should be doing some checking, returning an `Err` result if those checks fail, and only
+returning an `Ok` result if those checks determine that everything is... okay :)"""
+
+[[exercises]]
+name = "errors5"
+path = "homeworks/homework13/error_handling/errors5.rs"
+mode = "compile"
+hint = """
+Hint: There are two different possible `Result` types produced within
+`main()`, which are propagated using `?` operators. How do we declare a
+return type from `main()` that allows both?
+
+Another hint: under the hood, the `?` operator calls `From::from`
+on the error value to convert it to a boxed trait object, a
+`Box<dyn error::Error>`, which is polymorphic-- that means that lots of
+different kinds of errors can be returned from the same function because
+all errors act the same since they all implement the `error::Error` trait.
+Check out this section of the book:
+https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html#a-shortcut-for-propagating-errors-the--operator
+
+This exercise uses some concepts that we won't get to until later in the
+course, like `Box` and the `From` trait. It's not important to understand
+them in detail right now, but you can read ahead if you like.
+
+Read more about boxing errors:
+https://doc.rust-lang.org/stable/rust-by-example/error/multiple_error_types/boxing_errors.html
+
+Read more about using the `?` operator with boxed errors:
+https://doc.rust-lang.org/stable/rust-by-example/error/multiple_error_types/reenter_question_mark.html
+"""
+
+[[exercises]]
+name = "errors6"
+path = "homeworks/homework13/error_handling/errors6.rs"
+mode = "test"
+hint = """
+This exercise uses a completed version of `PositiveNonzeroInteger` from
+errors4.
+
+Below the line that TODO asks you to change, there is an example of using
+the `map_err()` method on a `Result` to transform one type of error into
+another. Try using something similar on the `Result` from `parse()`. You
+might use the `?` operator to return early from the function, or you might
+use a `match` expression, or maybe there's another way!
+
+You can create another function inside `impl ParsePosNonzeroError` to use
+with `map_err()`.
+
+Read more about `map_err()` in the `std::result` documentation:
+https://doc.rust-lang.org/std/result/enum.Result.html#method.map_err"""
+
+# MODULES
+
+[[exercises]]
+name = "modules1"
+path = "homeworks/homework13/modules/modules1.rs"
+mode = "compile"
+hint = """
+Everything is private in Rust by default-- but there's a keyword we can use
+to make something public! The compiler error should point to the thing that
+needs to be public."""
+
+[[exercises]]
+name = "modules2"
+path = "homeworks/homework13/modules/modules2.rs"
+mode = "compile"
+hint = """
+The delicious_snacks module is trying to present an external interface that is 
+different than its internal structure (the `fruits` and `veggies` modules and
+associated constants). Complete the `use` statements to fit the uses in main and
+find the one keyword missing for both constants."""
+
+[[exercises]]
+name = "modules3"
+path = "homeworks/homework13/modules/modules3.rs"
+mode = "compile"
+hint = """
+UNIX_EPOCH and SystemTime are declared in the std::time module. Add a use statement
+for these two to bring them into scope. You can use nested paths or the glob
+operator to bring these two in using only one line."""
+
+# TESTS
+
+[[exercises]]
+name = "tests1"
+path = "homeworks/homework13/tests/tests1.rs"
+mode = "test"
+hint = """
+You don't even need to write any code to test -- you can just test values and run that, even
+though you wouldn't do that in real life :) `assert!` is a macro that needs an argument.
+Depending on the value of the argument, `assert!` will do nothing (in which case the test will
+pass) or `assert!` will panic (in which case the test will fail). So try giving different values
+to `assert!` and see which ones compile, which ones pass, and which ones fail :)"""
+
+[[exercises]]
+name = "tests2"
+path = "homeworks/homework13/tests/tests2.rs"
+mode = "test"
+hint = """
+Like the previous exercise, you don't need to write any code to get this test to compile and
+run. `assert_eq!` is a macro that takes two arguments and compares them. Try giving it two
+values that are equal! Try giving it two arguments that are different! Try giving it two values
+that are of different types! Try switching which argument comes first and which comes second!"""
+
+[[exercises]]
+name = "tests3"
+path = "homeworks/homework13/tests/tests3.rs"
+mode = "test"
+hint = """
+You can call a function right where you're passing arguments to `assert!` -- so you could do
+something like `assert!(having_fun())`. If you want to check that you indeed get false, you
+can negate the result of what you're doing using `!`, like `assert!(!having_fun())`."""
+
+# TRAITS
+
+[[exercises]]
+name = "traits1"
+path = "homeworks/homework13/traits/traits1.rs"
+mode = "test"
+hint = """
+A discussion about Traits in Rust can be found at:
+https://doc.rust-lang.org/book/ch10-02-traits.html
+"""
+
+[[exercises]]
+name = "traits2"
+path = "homeworks/homework13/traits/traits2.rs"
+mode = "test"
+hint = """
+Notice how the trait takes ownership of 'self',and returns `Self'.
+Try mutating the incoming string vector.
+
+Vectors provide suitable methods for adding an element at the end. See
+the documentation at: https://doc.rust-lang.org/std/vec/struct.Vec.html"""
